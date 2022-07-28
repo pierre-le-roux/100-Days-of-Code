@@ -26,35 +26,6 @@ def ceasarcipher(message, number, program):
 
     return shift_message
 
-
-# def encode(message, number):
-#     number = number % len(ALPHABET)
-#     encoded_alphabet = ALPHABET[number:] + ALPHABET[:number]
-#     encoded_message = ''
-
-#     for letter in message.lower():
-#         try:
-#             index = ALPHABET.index(letter)
-#             encoded_message = encoded_message + encoded_alphabet[index]
-#         except:
-#             encoded_message = encoded_message + letter
-
-#     return encoded_message
-
-# def decode(message, number):
-#     number = number % len(ALPHABET)
-#     decoded_alphabet = ALPHABET[number:] + ALPHABET[:number]
-#     decoded_message = ''
-
-#     for letter in message.lower():
-#         try:
-#             index = decoded_alphabet.index(letter)
-#             decoded_message = decoded_message + ALPHABET[index]
-#         except:
-#             decoded_message = decoded_message + letter
-
-#     return decoded_message
-
 print(text2art('ceasar', font="rnd-large"))
 print(text2art('cipher', font="rnd-large"))
 
