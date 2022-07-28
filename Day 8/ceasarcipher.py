@@ -5,6 +5,7 @@ from art import text2art
 alphabet = list(string.ascii_lowercase)
 
 def encode(message, number):
+    number = number % len(alphabet)
     encoded_alphabet = alphabet[number:] + alphabet[:number]
     encoded_message = ''
 
@@ -18,6 +19,7 @@ def encode(message, number):
     return encoded_message
 
 def decode(message, number):
+    number = number % len(alphabet)
     decoded_alphabet = alphabet[number:] + alphabet[:number]
     decoded_message = ''
 
