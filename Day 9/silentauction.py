@@ -4,20 +4,7 @@
 # Are there any other bidders?
 # Show the bidder name with the highest bid
 
-GAVEL = """
-     ___________
-     \         /
-      )_______(
-      |\"\"\"\"\"\"\"|_.-._,.---------.,_.-._
-      |       | | |               | | ''-.
-      |       |_| |_             _| |_..-'
-      |_______| '-' `'---------'` '-'
-      )\"\"\"\"\"\"\"(
-     /_________\\
-     `'-------'`
-   .-------------.
-  /_______________\\
-"""
+from ascii_art import GAVEL
 
 def bid():
     name = input('What is your name? ')
@@ -52,5 +39,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
