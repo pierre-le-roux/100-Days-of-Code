@@ -4,19 +4,19 @@
 # Are there any other bidders?
 # Show the bidder name with the highest bid
 
-gavel = """
+GAVEL = """
      ___________
      \         /
       )_______(
-      |"""""""|_.-._,.---------.,_.-._
+      |\"\"\"\"\"\"\"|_.-._,.---------.,_.-._
       |       | | |               | | ''-.
       |       |_| |_             _| |_..-'
       |_______| '-' `'---------'` '-'
-      )"""""""(
-     /_________\
+      )\"\"\"\"\"\"\"(
+     /_________\\
      `'-------'`
    .-------------.
-  /_______________\
+  /_______________\\
 """
 
 def bid():
@@ -27,3 +27,30 @@ def bid():
 
 def max_bid(bids):
     return max(bids, key=bids.get)
+
+def silent_auction():
+    new_bidder = True
+    bids = {}
+
+    while new_bidder:
+        name, bid_ammount = bid()
+        bids[name] = bid_ammount
+
+        choice = input('Are there any other bidders (yes, no)? ')
+        if choice == 'no':
+            new_bidder = False
+
+    name_max_bid = max_bid(bids)
+    value_max_bid = bids[name_max_bid]
+    print(f'The highest bid was by {name_max_bid} with R{value_max_bid}. Congratulations!')
+
+def main():
+    print(GAVEL)
+    print('Welcome to the silent auction.')
+
+    silent_auction()
+
+if __name__ == "__main__":
+    main()
+
+
