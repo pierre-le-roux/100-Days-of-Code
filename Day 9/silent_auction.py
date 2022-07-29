@@ -5,6 +5,10 @@
 # Show the bidder name with the highest bid
 
 from ascii_art import GAVEL
+from os import system
+
+def clear():
+    system('cls')
 
 def bid():
     name = input('What is your name? ')
@@ -26,6 +30,8 @@ def silent_auction():
         choice = input('Are there any other bidders (yes, no)? ')
         if choice == 'no':
             new_bidder = False
+        
+        clear()
 
     name_max_bid = max_bid(bids)
     value_max_bid = bids[name_max_bid]
