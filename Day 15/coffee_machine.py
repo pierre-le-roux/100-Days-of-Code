@@ -7,12 +7,12 @@ machine_resources = {
     'water': 300,
     'milk': 200,
     'coffee': 100,
-    'money' : 0
+    'money': 0
 }
 
 
 def sufficient_resources(drink):
-    """checks if the coffee machine has sufficient resources to make 
+    """checks if the coffee machine has sufficient resources to make
     the requested drink.
 
     Args:
@@ -28,7 +28,6 @@ def sufficient_resources(drink):
             if bom[resource] > machine_resources[resource]:
                 print(f'Sorry there isn\'t enough {resource}')
                 return False
-        
     return True
 
 
@@ -42,7 +41,6 @@ def sum_coins():
     total = 0
     for coin in coins:
         total = int(input(f'How many {coin}s? ')) * coins[coin]
-        
     return total
 
 
@@ -67,11 +65,11 @@ def refund(money, drink):
         update_resources(drink)
         if refund:
             print(f'Here is your ${refund} in change.')
-        print(f' is your {drink}, enjoy!')            
+        print(f' is your {drink}, enjoy!')
     else:
         print("Sorry that's not enough money. Money refunded")
-        
-        
+
+
 def update_resources(drink):
     """updates the machine's resources
 
@@ -84,20 +82,20 @@ def update_resources(drink):
         if resource != 'money':
             machine_resources[resource] -= bom[resource]
 
-        
+
 def main():
     print(logo)
     choice = input(f'What would you like? {list(drinks.keys())}: ').lower()
-    
+
     if choice == 'report':
         print(machine_resources)
     else:
         if sufficient_resources(choice):
             money = sum_coins()
-            refund(money, choice)            
-            
+            refund(money, choice)
+
     main()
-    
-    
+
+
 if __name__ == '__main__':
     main()
