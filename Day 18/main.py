@@ -6,38 +6,11 @@ squirtle.color('black', 'orange')
 squirtle.home()
 squirtle.speed('fastest')
 
-for distance in range(200, -5, -5):
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
-for distance in range(0, 205, 5):
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-for distance in range(200, -5, -5):
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-    squirtle.right(90)
-    squirtle.fd(distance)
-for distance in range(0, 205, 5):
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
-    squirtle.left(90)
-    squirtle.fd(distance)
+for i in range(15):
+    squirtle.pendown()
+    squirtle.fd(10)
+    squirtle.penup()
+    squirtle.fd(10)
 
 
 # squirtle.penup()
