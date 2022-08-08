@@ -24,10 +24,11 @@ class Menu:
         options = ""
         for item in self.menu:
             options += f"{item.name}/"
-        return options
+        return options[:-1]
 
     def find_drink(self, order_name):
-        """Searches the menu for a particular drink by name. Returns that item if it exists, otherwise returns None"""
+        """Searches the menu for a particular drink by name.
+        Returns that item if it exists, otherwise returns None"""
         for item in self.menu:
             if item.name == order_name:
                 return item
