@@ -9,7 +9,7 @@ class QuizBrain:
         question = self.question_bank[self.question_number].text
         self.question_number += 1
 
-        choice = input(f'Q.{self.question_number}:' +
+        choice = input(f'Q.{self.question_number}: ' +
                        f'{question} [true/false]: ').lower()
         return choice
 
