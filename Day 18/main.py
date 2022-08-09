@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-from random import random
+from random import randint, random, randrange, choice
 
 
 def change_color():
@@ -13,17 +13,19 @@ def change_color():
 squirtle = Turtle()
 squirtle.speed('fastest')
 squirtle.penup()
-squirtle.goto(-38, 400)
+# squirtle.goto(-38, 400)
+squirtle.pensize(15)
+squirtle.home()
 squirtle.pendown()
 squirtle.shape('turtle')
 squirtle.color('black', 'orange')
 
-for i in range(1, 40):
-    angle = 360/(i+2)
+for _ in range(50000):
     change_color()
-    for j in range(i+2):
-        squirtle.fd(75)
-        squirtle.right(angle)
+    squirtle.fd(25)
+    squirtle.setheading(choice([0, 90, 180, 270]))
+
+squirtle.hideturtle()
 
 # has to happen at the end
 screen = Screen()
