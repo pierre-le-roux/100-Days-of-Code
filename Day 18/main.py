@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-from random import random, choice
+from random import random
 
 
 def change_color():
@@ -13,16 +13,19 @@ def change_color():
 squirtle = Turtle()
 squirtle.speed('fastest')
 squirtle.penup()
-squirtle.pensize(15)
+squirtle.pensize(2)
 squirtle.home()
 squirtle.pendown()
 
 
-for _ in range(50):
-    change_color()
-    squirtle.fd(25)
-    squirtle.setheading(choice([0, 90, 180, 270]))
+def draw_spirograph(size_of_gap):
+    for _ in range(round(360/size_of_gap)):
+        change_color()
+        squirtle.circle(100)
+        squirtle.right(size_of_gap)
 
+
+draw_spirograph(2.235684)
 squirtle.hideturtle()
 
 # has to happen at the end
