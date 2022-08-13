@@ -1,5 +1,7 @@
 from turtle import Turtle, Screen
-from random import random
+from random import random, seed
+
+seed(1)
 
 
 def change_color():
