@@ -1,3 +1,4 @@
+from random import randint
 from turtle import Turtle, Screen, colormode
 
 colormode(255)
@@ -8,63 +9,69 @@ donatello = Turtle(shape='turtle')
 raphael = Turtle(shape='turtle')
 skillie = Turtle(shape='turtle')
 
-turtles = [leonardo, michelangelo, donatello, raphael, skillie]
+turtles = {leonardo: {'colour': 'blue', 'x': -200, 'y': 100},
+           michelangelo: {'colour': 'orange', 'x': -200, 'y': 50},
+           donatello: {'colour': 'purple', 'x': -200, 'y': 0},
+           raphael: {'colour': 'red', 'x': -200, 'y': -50},
+           skillie: {'colour': 'green', 'x': -200, 'y': -100}}
+
 
 screen = Screen()
 screen.setup(width=500, height=400)
 
-guess = screen.textinput(title='Guess',
-                         prompt='Who will win the race? Enter a colour:')
 
-print(guess)
+def get_guess():
+    return screen.textinput(title='Guess',
+                            prompt='Who will win the race? Enter a colour:')
 
-def change_turtle(func, values):
-    for i in range(len(turtles)):
-        turtles[i].func(values[i])
-        
-turtles = {leonardo:{'colour':'blue', 'x':-255, 'y':100},
-           michelangelo:{'colour':'blue', 'x':-255, 'y':50},
-           donatello:{'colour':'blue', 'x':-255, 'y':0},
-           raphael:{'colour':'blue', 'x':-255, 'y':-50},
-           skillie:{'colour':'blue', 'x':-255, 'y':-100}}
 
-colours = [(0, 170, 230), (255, 165, 0), (170, 27, 221), (227, 51, 28), (76, 156, 35)]
-start_positions = [-225, 100, -225, 50, -225, 0, -225, -50, -225, -100]
-for i in range(len(turtles)):
-    turtles[i].color(colours[i])
-    turtles[i].penup()
-    turtles[i].goto(start_positions[2*i-1], start_positions[2*i])
-        
+def initialise_game(finish_line):
+    line = Turtle(visible=False)
+    line.penup()
+    y_top = turtles[list(turtles.keys())[0]]['y'] + 50
+    y_bot = turtles[list(turtles.keys())[-1]]['y'] - 50
+    line.goto(finish_line, y_top)
+    line.pendown()
+    line.goto(finish_line, y_bot)
 
-# leonardo.color((0, 170, 230))
-# michelangelo.color((255, 165, 0))
-# donatello.color((170, 27, 221))
-# raphael.color((227, 51, 28))
-# skillie.color((76, 156, 35))
+    for turtle in turtles.keys():
+        turtle.speed('fastest')
+        turtle.color(turtles[turtle]['colour'])
+        turtle.penup()
+        turtle.goto(turtles[turtle]['x'], turtles[turtle]['y'])
 
-# leonardo.penup()
-# michelangelo.penup()
-# donatello.penup()
-# raphael.penup()
-# skillie.penup()
 
-# leonardo.goto(-225, 100)
-# michelangelo.goto(-225, 50)
-# donatello.goto(-225, 0)
-# raphael.goto(-225, -50)
-# skillie.goto(-225, -100)
+def who_won(guess, finish_line):
+    for turtle in turtles.keys():
+        if turtle.xcor() >= finish_line:
+            if guess == turtles[turtle]['colour']:
+                print(f'Congrats the {guess} turtle won!')
+            else:
+                print(f"Sorry the {turtles[turtle]['colour']} turtle won,",
+                      f"and you chose {guess}")
+            return True
 
-def who_won():
-    finish_line = screen.window_width() - 20
-    for turtle in turtles:
-        turtle.xcor == 
-    if leonardo.xcor == finish_line:
-        return 'blue'
-    elif 
 
-not_finished = True
-while not_finished:
-    
-    
+def random_movement():
+    for turtle in turtles.keys():
+        turtle.forward(randint(0, 25))
 
-screen.exitonclick()
+
+def main():
+    not_finished = True
+    guess = get_guess()
+    finish_line = screen.window_width()/2 - 25
+    initialise_game(finish_line)
+    while not_finished:
+        random_movement()
+        if who_won(guess, finish_line):
+            not_finished = False
+
+    screen.listen()
+    screen.onkey('c', main())
+
+    screen.exitonclick()
+
+
+if __name__ == '__main__':
+    main()
