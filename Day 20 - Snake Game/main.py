@@ -13,12 +13,9 @@ snake = Snake()
 gaming = True
 while gaming:
     screen.update()
-    sleep(0.2)
+    sleep(0.1)
 
     snake.move()
-
-
-
 
 screen.listen()
 screen.exitonclick()
