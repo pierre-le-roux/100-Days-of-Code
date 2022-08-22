@@ -24,9 +24,14 @@ class Player(Turtle):
 
     def starting_position(self):
         if self.player == 1:
-            self.goto(-(WIDTH/2 - 30), 0)
+            self.goto(-(WIDTH/2 - 32), 0)
         else:
-            self.goto((WIDTH/2 - 30), 0)
+            self.goto((WIDTH/2 - 32), 0)
+
+    def refresh(self):
+        self.hideturtle()
+        self.sety(0)
+        self.showturtle()
 
     def up(self):
         if self.ycor() + SIZE < HEIGHT/2:
