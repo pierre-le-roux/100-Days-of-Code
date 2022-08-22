@@ -9,15 +9,16 @@ SPEED = 60
 
 class Player(Turtle):
 
-    def __init__(self, player=1):
+    def __init__(self, player):
         super().__init__()
         self.penup()
         self.hideturtle()
         self.color('white')
         self.shape('square')
         self.speed('fastest')
-        self.turtlesize(6, 1.5, 1)
+        self.shapesize(6, 1.5, 1)
         self.player = player
+        self.score = 0
         self.starting_position()
         self.showturtle()
 
@@ -34,3 +35,6 @@ class Player(Turtle):
     def down(self):
         if self.ycor() - SIZE > -(HEIGHT/2):
             self.setpos(self.xcor(), self.ycor()-SPEED)
+
+    def update_score(self):
+        self.score += 1
