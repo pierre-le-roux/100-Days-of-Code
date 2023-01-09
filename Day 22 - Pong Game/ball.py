@@ -2,6 +2,7 @@ import math
 from random import choice
 from turtle import Turtle
 from settings import HEIGHT
+from icecream import ic
 
 SPEED = [-15, 15]
 SIZE = 30
@@ -30,12 +31,16 @@ class Ball(Turtle):
             self.y_speed = self.y_speed * -1
 
     def update_angle(self, player):
+        if player.player == 1:
 
-        if (abs(player.xcor()) < abs(self.xcor() + self.x_speed) + SIZE and
-                ((abs(player.ycor() + SIZE*2) < abs(self.ycor()) and
-                  abs(player.ycor() - SIZE*2) > abs(self.ycor())) or
-                 (abs(player.ycor() + SIZE*2) > abs(self.ycor()) and
-                  abs(player.ycor() - SIZE*2) < abs(self.ycor())))):
+        if ((player.xcor() > self.xcor() + self.x_speed - SIZE and
+                self.xcor() < 0 and
+                player.ycor() + SIZE*2 < self.ycor() and
+                player.ycor() - SIZE*2 > self.ycor()) or
+            (player.xcor() < self.xcor() + self.x_speed + SIZE and
+                self.xcor() > 0 and
+                player.ycor() + SIZE*2 < self.ycor() and
+                player.ycor() - SIZE*2 > self.ycor())):
             self.x_speed = self.x_speed * -1
 
     def move(self):
